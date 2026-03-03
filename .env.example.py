@@ -1,0 +1,8 @@
+DB_HOST=db
+DB_PORT=3306
+DB_USER=pm_user
+DB_PASSWORD=pm_pass
+DB_NAME=process_manager
+SECRET_KEY=mi_super_secreto
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30

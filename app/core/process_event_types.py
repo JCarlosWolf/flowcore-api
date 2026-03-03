@@ -1,0 +1,9 @@
+from enum import Enum
+
+class ProcessEventType(str, Enum):
+    PROCESS_CREATED = "PROCESS_CREATED"
+    PROCESS_UPDATED = "PROCESS_UPDATED"
+    STATUS_CHANGED = "STATUS_CHANGED"
+    FIELD_UPDATED = "FIELD_UPDATED"
+
+

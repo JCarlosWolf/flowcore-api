@@ -1,0 +1,12 @@
+# created by virtualenv automatically
+__pycache__/
+*.pyc
+.env
+venv/
+.pytest_cache/
+*.sqlite3
+pruAltas.py
+test.db
+
+
+
