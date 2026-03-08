@@ -317,4 +317,4 @@ pytest
 
 # Author
 
-Backend portfolio project demonstrating a workflow-based process management a
+Backend portfolio project demonstrating a workflow-based process management architecture built with **FastAPI and PostgreSQL**.
