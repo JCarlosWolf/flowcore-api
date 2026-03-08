@@ -1,10 +1,28 @@
 FlowCore API
 
-FlowCore is a backend system for managing business processes using configurable workflows, process templates, and event tracking.
+
+
+
+
+
+
+FlowCore is a backend system for managing business processes using configurable workflows, process templates and event tracking.
 
 The project demonstrates a production-style backend architecture built with FastAPI, PostgreSQL, SQLAlchemy and WebSockets.
 
-It was developed as a portfolio project to showcase backend engineering skills such as workflow modeling, event systems, real-time updates, metrics aggregation and role-based access control.
+It was developed as a portfolio project to showcase backend engineering concepts such as:
+
+workflow modeling
+
+event-driven systems
+
+real-time updates
+
+metrics aggregation
+
+role-based access control
+
+clean backend architecture
 
 Features
 
@@ -22,17 +40,17 @@ Event timeline (audit log)
 
 Real-time updates via WebSockets
 
-Metrics dashboard
+Metrics aggregation API
 
 PostgreSQL database
 
 Alembic migrations
 
-Clean architecture (routers → services → models)
+Layered architecture (routers → services → models)
 
 Architecture
 
-The API follows a layered architecture separating API, business logic and persistence.
+The API follows a layered architecture separating API logic, business logic and persistence.
 
 Client
    ↓
@@ -43,9 +61,7 @@ Service Layer
 Workflow Engine
    ↓
 PostgreSQL
-
-Project structure:
-
+Project Structure
 app
  ├ core        # configuration, security, enums
  ├ db          # database connection
@@ -59,7 +75,7 @@ alembic        # database migrations
 tests          # API tests
 Domain Model
 
-The system models business workflows with the following entities:
+The system models business workflows using the following entities:
 
 ProcessTemplate
       │
@@ -76,7 +92,7 @@ Process
 ProcessEvents
 Process
 
-Represents an instance of a business workflow.
+Represents an instance of a workflow.
 
 Examples:
 
@@ -123,17 +139,14 @@ Pydantic
 
 JWT Authentication
 
+Docker
+
 Installation
-
 Clone repository
-
 git clone https://github.com/JCarlosWolf/flowcore-api.git
 cd flowcore-api
-
 Create virtual environment
-
 python -m venv .venv
-
 Activate environment
 
 Windows
@@ -143,13 +156,11 @@ Windows
 Linux / macOS
 
 source .venv/bin/activate
-
 Install dependencies
-
 pip install -r requirements.txt
 Environment Variables
 
-Create a .env file in the root folder:
+Create a .env file in the project root:
 
 DB_HOST=localhost
 DB_PORT=5432
@@ -188,25 +199,15 @@ Swagger documentation:
 
 http://localhost:8000/docs
 Example API Flow
-
 Login
-
 POST /auth/login
-
 Create client
-
 POST /clients
-
 Create process
-
 POST /processes
-
 Change process status
-
 POST /processes/{id}/status
-
 View timeline
-
 GET /processes/{id}/timeline
 Metrics API
 
@@ -227,11 +228,8 @@ WebSockets
 Real-time updates are available through WebSocket channels.
 
 Process timeline updates
-
 ws://localhost:8000/ws/process/{process_id}
-
 Metrics updates
-
 ws://localhost:8000/ws/metrics
 Testing
 
@@ -240,4 +238,4 @@ Run tests with:
 pytest
 Author
 
-Backend portfolio project demonstrating workflow-based process management architecture using FastAPI.
+Backend portfolio project demonstrating a workflow-based process management architecture built with FastAPI and PostgreSQL.
