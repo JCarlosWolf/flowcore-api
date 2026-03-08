@@ -33,3 +33,7 @@ alembic/__pycache__/
 # Coverage
 htmlcov/
 .coverage
+
+
+.venv
+__pycache__

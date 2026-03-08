@@ -4,6 +4,7 @@ from app.models.roles import Role
 from app.models.clients import Client
 from app.models.processes import Process
 from app.models.process_events import ProcessEvent
+from app.core.config import settings
 
 
 
@@ -53,7 +54,8 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    #url = config.get_main_option("sqlalchemy.url")
+    url = settings.DATABASE_URL
     context.configure(
         url=url,
         target_metadata=target_metadata,

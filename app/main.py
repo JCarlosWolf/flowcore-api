@@ -50,3 +50,7 @@ app.add_exception_handler(HTTPException, http_exception_handler)
 
 # Manejo de errores genéricos
 app.add_exception_handler(Exception, generic_exception_handler)
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}

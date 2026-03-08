@@ -56,6 +56,13 @@ def seed_template(db: Session, workflow_id: int):
 
 def seed_client(db: Session):
 
+    existing = db.query(Client).filter(
+        Client.email == "demo@company.com"
+    ).first()
+
+    if existing:
+        return existing
+
     client = Client(
         name="Demo Company",
         email="demo@company.com",
@@ -66,7 +73,6 @@ def seed_client(db: Session):
     db.commit()
 
     return client
-
 
 def run():
 
