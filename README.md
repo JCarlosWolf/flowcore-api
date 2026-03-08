@@ -1,173 +1,243 @@
-# Process Manager 🚀
+FlowCore API
 
-![Python](https://img.shields.io/badge/python-3.11-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.99-green)
-![License](https://img.shields.io/badge/license-MIT-blue)
+FlowCore is a backend system for managing business processes using configurable workflows, process templates, and event tracking.
 
-## 📌 Descripción
-**Process Manager** es una API REST construida con **FastAPI**, diseñada para gestionar:
+The project demonstrates a production-style backend architecture built with FastAPI, PostgreSQL, SQLAlchemy and WebSockets.
 
-- Procesos con historial de eventos.
-- Clientes y usuarios.
-- Roles y permisos de acceso.
-- Métricas en tiempo real.
-- Notificaciones mediante **WebSockets**.
+It was developed as a portfolio project to showcase backend engineering skills such as workflow modeling, event systems, real-time updates, metrics aggregation and role-based access control.
 
-**Python, FastAPI, SQLAlchemy, Pydantic, JWT y WebSockets**.
+Features
 
----
+JWT Authentication
 
-## 🛠 Tecnologías
-- **Python 3.11+**
-- **FastAPI**
-- **SQLAlchemy**
-- **Pydantic**
-- **SQLite / PostgreSQL** (según configuración)
-- **JWT Authentication**
-- **Pytest** para testing
-- **WebSockets** para actualizaciones en tiempo real
+Role-based access control (Admin / Manager / User)
 
----
+Workflow engine with configurable steps
 
-## 📁 Estructura del proyecto
-/app
-/models # Modelos de base de datos
-/routers # Endpoints de la API
-/schemas # Schemas Pydantic
-/services # Lógica de negocio
-/core # Seguridad, roles, WS manager
-/tests # Tests unitarios y de integración
-main.py # Entrada principal
-requirements.txt # Dependencias
+Process templates
 
-yaml
-Copiar código
+Process lifecycle management
 
----
+Event timeline (audit log)
 
-## 🔐 Roles y permisos
+Real-time updates via WebSockets
 
-| Rol     | Acciones permitidas |
-|---------|-------------------|
-| **ADMIN** | CRUD usuarios, roles, clientes y procesos |
-| **USER**  | Consultar procesos, clientes y métricas |
+Metrics dashboard
 
-> Todos los endpoints críticos requieren validación de rol mediante `require_role(RoleEnum.ADMIN)`.
+PostgreSQL database
 
----
+Alembic migrations
 
-## 🚀 Instalación
+Clean architecture (routers → services → models)
 
-1. Clonar repositorio:
-```bash
-git clone https://github.com/tu-usuario/process-manager.git
-cd process-manager
-Crear y activar entorno virtual:
+Architecture
 
-bash
-Copiar código
-python -m venv venv
-source venv/bin/activate   # Linux/macOS
-venv\Scripts\activate      # Windows
-Instalar dependencias:
+The API follows a layered architecture separating API, business logic and persistence.
 
-bash
-Copiar código
-pip install -r requirements.txt
-Inicializar la base de datos:
+Client
+   ↓
+FastAPI Routers
+   ↓
+Service Layer
+   ↓
+Workflow Engine
+   ↓
+PostgreSQL
 
-bash
-Copiar código
-# Si usas Alembic
-alembic upgrade head
-Correr la aplicación:
+Project structure:
 
-bash
-Copiar código
-uvicorn app.main:app --reload
-La API estará disponible en http://127.0.0.1:8000.
+app
+ ├ core        # configuration, security, enums
+ ├ db          # database connection
+ ├ models      # SQLAlchemy ORM models
+ ├ routers     # API endpoints
+ ├ schemas     # Pydantic validation schemas
+ ├ services    # business logic
+ └ scripts     # demo seed scripts
 
-📚 Endpoints principales
-Autenticación
-POST /auth/login → Obtener JWT.
+alembic        # database migrations
+tests          # API tests
+Domain Model
 
-GET /auth/me → Información del usuario actual.
+The system models business workflows with the following entities:
 
-Usuarios (solo ADMIN)
-POST /users → Crear usuario.
+ProcessTemplate
+      │
+      ▼
+Workflow
+      │
+      ▼
+WorkflowSteps
+      │
+      ▼
+Process
+      │
+      ▼
+ProcessEvents
+Process
 
-GET /users → Listar usuarios.
+Represents an instance of a business workflow.
 
-GET /users/{id} → Ver usuario.
+Examples:
 
-PUT /users/{id} → Actualizar usuario.
+client onboarding
 
-DELETE /users/{id} → Eliminar usuario.
+verification processes
 
-Roles (solo ADMIN)
-CRUD completo en /roles.
+approval pipelines
 
-Clientes (solo ADMIN)
-CRUD completo en /clients.
+Workflow
 
-Procesos
-POST /processes → Crear proceso (ADMIN).
+Defines the ordered sequence of steps a process must follow.
 
-GET /processes → Listar procesos.
+Example:
 
-GET /processes/{id} → Obtener proceso.
+created → document_validation → risk_assessment → approved
+Process Events
 
-PUT /processes/{id} → Actualizar proceso (ADMIN).
+Every important change generates an event:
 
-DELETE /processes/{id} → Eliminar proceso (ADMIN).
+process created
 
-POST /processes/{id}/status → Cambiar estado del proceso.
+field updated
 
-GET /processes/{id}/timeline → Timeline de eventos.
+status changed
 
-Eventos de procesos
-GET /process-events/process/{id} → Listar eventos de un proceso.
+These events create a timeline (audit log) for each process.
 
-POST /process-events → Crear evento manual.
+Tech Stack
 
-GET /process-events/{id}/timeline → Timeline paginado.
+Python
 
-Métricas
-GET /metrics → Métricas por procesos, eventos y usuarios.
+FastAPI
+
+SQLAlchemy
+
+PostgreSQL
+
+Alembic
 
 WebSockets
-/ws/process/{id} → Actualización de eventos de un proceso.
 
-/ws/metrics → Actualización de métricas en tiempo real.
+Pydantic
 
-⚡ Pruebas
-Ejecuta los tests con Pytest:
+JWT Authentication
 
-bash
-Copiar código
-pytest --disable-warnings -v
-📊 Métricas incluidas
-Conteo de procesos por estado.
+Installation
 
-Conteo de eventos por tipo.
+Clone repository
 
-Conteo de eventos por usuario.
+git clone https://github.com/JCarlosWolf/flowcore-api.git
+cd flowcore-api
 
-🗺 Diagrama de Roles y Acceso
-text
-Copiar código
-       ┌───────────────┐
-       │     ADMIN     │
-       │ CRUD: Users   │
-       │ CRUD: Roles   │
-       │ CRUD: Clients │
-       │ CRUD: Processes │
-       └───────────────┘
-               │
-               ▼
-       ┌───────────────┐
-       │     USER      │
-       │ Read: Users   │
-       │ Read: Processes │
-       │ Read: Metrics │
-       └───────────────┘
+Create virtual environment
+
+python -m venv .venv
+
+Activate environment
+
+Windows
+
+.venv\Scripts\activate
+
+Linux / macOS
+
+source .venv/bin/activate
+
+Install dependencies
+
+pip install -r requirements.txt
+Environment Variables
+
+Create a .env file in the root folder:
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=flowcore_user
+DB_PASSWORD=flowcore_pass
+DB_NAME=flowcore
+
+SECRET_KEY=super_secret_key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=30
+Run Database
+
+Using Docker:
+
+docker compose up -d
+Run Migrations
+alembic upgrade head
+Seed Demo Data
+python scripts/demo_seed.py
+python scripts/seed_roles_users.py
+
+This creates:
+
+demo workflow
+
+process template
+
+demo client
+
+admin user
+
+Run API
+uvicorn app.main:app --reload
+
+Swagger documentation:
+
+http://localhost:8000/docs
+Example API Flow
+
+Login
+
+POST /auth/login
+
+Create client
+
+POST /clients
+
+Create process
+
+POST /processes
+
+Change process status
+
+POST /processes/{id}/status
+
+View timeline
+
+GET /processes/{id}/timeline
+Metrics API
+
+The system aggregates workflow metrics.
+
+GET /metrics
+
+Returns:
+
+processes by status
+
+events by type
+
+events by user
+
+WebSockets
+
+Real-time updates are available through WebSocket channels.
+
+Process timeline updates
+
+ws://localhost:8000/ws/process/{process_id}
+
+Metrics updates
+
+ws://localhost:8000/ws/metrics
+Testing
+
+Run tests with:
+
+pytest
+Author
+
+Backend portfolio project demonstrating workflow-based process management architecture using FastAPI.
