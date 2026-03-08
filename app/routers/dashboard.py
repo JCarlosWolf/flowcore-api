@@ -7,6 +7,7 @@ from app.models.process_events import ProcessEvent
 from app.models.users import User
 from app.core.roles import RoleEnum
 from app.core.dependencies import require_role
+from app.core.process_status import ProcessStatus
 
 router = APIRouter(
     prefix="/dashboard",
@@ -23,8 +24,10 @@ def dashboard_summary(
 
     # Total por estado
     total_by_status = {
-        status: db.query(Process).filter(Process.status == status).count()
-        for status in ["CREATED", "IN_PROGRESS", "COMPLETED"]
+        status.value: db.query(Process)
+        .filter(Process.status == status)
+        .count()
+        for status in ProcessStatus
     }
 
     # Procesos activos pero no completados (vencidos o en progreso)

@@ -1,8 +1,9 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
 from app.db.database import SessionLocal, engine
-from app.models.users import User, Role
 from passlib.context import CryptContext
+from app.models.users import User
+from app.models.roles import Role
 
 # Configurar bcrypt
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")

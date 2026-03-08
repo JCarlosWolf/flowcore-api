@@ -5,7 +5,7 @@ from app.core.roles import RoleEnum
 from app.db.database import get_db
 from app.models.roles import Role
 from app.schemas.roles import RoleCreate, RoleUpdate, RoleResponse
-from app.dependencies.auth import get_current_user
+from app.core.dependencies import get_current_user
 
 router = APIRouter(
     prefix="/roles",

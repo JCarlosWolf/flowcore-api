@@ -1,5 +1,5 @@
 DB_HOST=db
-DB_PORT=3306
+DB_PORT=5432
 DB_USER=pm_user
 DB_PASSWORD=pm_pass
 DB_NAME=process_manager

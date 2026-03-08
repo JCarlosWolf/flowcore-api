@@ -91,13 +91,21 @@ def list_processes(
     return processes_service.get_all_processes(db, only_active=True)
 
 
-@router.post("/", response_model=ProcessRead, status_code=status.HTTP_201_CREATED)
+@router.post("/", response_model=ProcessRead)
 def create_process(
     process: ProcessCreate,
     db: Session = Depends(get_db),
-    current_user: User = Depends(require_role(RoleEnum.ADMIN))
+    current_user: User = Depends(get_current_user)
 ):
-    return processes_service.create_process(db, process, current_user)
+
+    return processes_service.create_process(
+        db=db,
+        name=process.name,
+        description=process.description,
+        client_id=process.client_id,
+        template_id=process.template_id,
+        current_user=current_user
+    )
 
 @router.get("/{process_id}", response_model=ProcessRead)
 def get_process(

@@ -5,47 +5,46 @@ from collections import defaultdict
 from typing import List, Optional, Tuple
 from app.schemas.processes import ProcessCreate, ProcessUpdate
 from app.services.process_events_service import create_event
-from app.models.users import User
-from app.core.process_status import ProcessStatus
-from app.models.processes import Process
 from app.models.process_events import ProcessEvent
 from app.core.process_event_types import ProcessEventType
-
+from app.services.workflow_service import validate_workflow_transition
+from app.models.processes import Process
+from app.models.process_templates import ProcessTemplate
+from app.models.users import User
+from app.core.process_status import ProcessStatus
 
 
 def create_process(
     db: Session,
-    data: ProcessCreate,
+    name: str,
+    description: str,
+    client_id: int,
+    template_id: int,
     current_user: User
-) -> Process:
-    try:
-        process = Process(
-            **data.model_dump(),
-            creator_id=current_user.id
-        )
+):
 
-        db.add(process)
-        db.flush()  # obtiene ID sin commit
+    template = db.query(ProcessTemplate).filter(
+        ProcessTemplate.id == template_id
+    ).first()
 
-        create_event(
-            db=db,
-            process_id=process.id,
-            action=ProcessEventType.PROCESS_CREATED,
-            #event_type=ProcessEventType.PROCESS_CREATED,
-            description="Proceso creado",
-            old_value=None,
-            new_value=None,
-            created_by=current_user.id
-        )
+    if not template:
+        raise ValueError("Invalid template")
 
-        db.commit()
-        db.refresh(process)
-        return process
+    process = Process(
+        name=name,
+        description=description,
+        client_id=client_id,
+        creator_id=current_user.id,
+        template_id=template.id,
+        workflow_id=template.workflow_id,
+        status=ProcessStatus.CREATED
+    )
 
-    except Exception:
-        db.rollback()
-        raise
+    db.add(process)
+    db.commit()
+    db.refresh(process)
 
+    return process
 
 
 def get_process(db: Session, process_id: int) -> Optional[Process]:
@@ -231,19 +230,35 @@ def change_process_status(
     if old_status == new_status:
         return process
 
-    process.status = new_status
-    db.commit()
-    db.refresh(process)
+    try:
 
+        # validar transición de workflow
+        if process.workflow_id:
+            validate_workflow_transition(
+                db=db,
+                workflow_id=process.workflow_id,
+                current_status=str(old_status.value),
+                new_status=str(new_status.value)
+            )
+        # actualizar estado
+        process.status = new_status
 
-    create_event(
-        db=db,
-        process_id=process.id,
-        action=ProcessEventType.STATUS_CHANGED,
-        description=f"Estado cambiado de {old_status} a {new_status}",
-        old_value=str(old_status),
-        new_value=str(new_status),
-        created_by=current_user.id
-    )
+        # registrar evento
+        create_event(
+            db=db,
+            process_id=process.id,
+            action=ProcessEventType.STATUS_CHANGED,
+            description=f"Estado cambiado de {old_status} a {new_status}",
+            old_value=str(old_status),
+            new_value=str(new_status),
+            created_by=current_user.id
+        )
 
-    return process
+        db.commit()
+        db.refresh(process)
+
+        return process
+
+    except Exception:
+        db.rollback()
+        raise

@@ -1,8 +1,8 @@
-"""Initial
+"""initial_postgres_schema
 
-Revision ID: f54639099cfe
+Revision ID: 9cce2388ac46
 Revises: 
-Create Date: 2026-02-08 12:42:37.277418
+Create Date: 2026-03-03 21:38:46.720374
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'f54639099cfe'
+revision: str = '9cce2388ac46'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -55,7 +55,9 @@ def upgrade() -> None:
     op.create_table('processes',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('name', sa.String(length=100), nullable=False),
+    sa.Column('description', sa.String(length=255), nullable=True),
     sa.Column('status', sa.String(length=50), nullable=True),
+    sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.Column('creator_id', sa.Integer(), nullable=False),
     sa.Column('client_id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
@@ -67,11 +69,14 @@ def upgrade() -> None:
     op.create_table('process_events',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('process_id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('action', sa.String(length=100), nullable=False),
+    sa.Column('action', sa.Enum('PROCESS_CREATED', 'PROCESS_UPDATED', 'STATUS_CHANGED', 'FIELD_UPDATED', name='processeventtype'), nullable=False),
+    sa.Column('description', sa.String(length=255), nullable=True),
+    sa.Column('old_value', sa.String(length=255), nullable=True),
+    sa.Column('new_value', sa.String(length=255), nullable=True),
+    sa.Column('created_by', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['created_by'], ['users.id'], ),
     sa.ForeignKeyConstraint(['process_id'], ['processes.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_index(op.f('ix_process_events_id'), 'process_events', ['id'], unique=False)

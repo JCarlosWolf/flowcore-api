@@ -20,6 +20,6 @@ class ProcessEvent(Base):
     created_by = Column(Integer, ForeignKey("users.id"), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
 
-    # 🔗 RELACIONES
+
     process = relationship("Process", back_populates="events")
     user = relationship("User")

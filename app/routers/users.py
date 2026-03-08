@@ -50,15 +50,6 @@ def read_me(current_user: User = Depends(get_current_user)):
 
 
 
-@router.get("/", response_model=List[UserOut])
-def list_users(
-    db: Session = Depends(get_db),
-    _: User = Depends(require_role(RoleEnum.ADMIN))
-):
-    return db.query(User).all()
-
-
-
 @router.get("/{user_id}", response_model=UserOut)
 def get_user(
     user_id: int,

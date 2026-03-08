@@ -2,10 +2,10 @@ from fastapi import Depends, HTTPException, status
 from jose import JWTError, jwt
 from app.db.database import get_db
 from app.models.users import User
-from app.core.security import SECRET_KEY, ALGORITHM
+from app.core.config import settings
 from app.core.oauth2 import oauth2_scheme
 from fastapi import WebSocket, WebSocketException
-from app.core.jwt import decode_access_token
+from app.core.security import decode_access_token
 from sqlalchemy.orm import Session
 
 def get_current_user(
@@ -19,7 +19,7 @@ def get_current_user(
     )
 
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
         user_id: str | None = payload.get("sub")
         if user_id is None:
             raise credentials_exception

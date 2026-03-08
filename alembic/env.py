@@ -1,5 +1,5 @@
 from app.db.database import Base
-from app.models.users import User
+
 from app.models.roles import Role
 from app.models.clients import Client
 from app.models.processes import Process
