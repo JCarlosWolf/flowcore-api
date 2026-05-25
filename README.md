@@ -1,4 +1,3 @@
-
 # FlowCore API: Workflow Management & Business Process Automation Engine (BPM)
 
 **Developed by:** José Carlos Lobo  
@@ -8,13 +7,12 @@
 
 ## 🌍 Language / Idioma
 
-* For the technical documentation in English, click here: 👉 **[English Version](#english-version)**
-* Para el caso de estudio de negocio en español, haz clic aquí: 👉 **[Versión en Español](#version-espanol)**
+* For the technical documentation in English, please scroll down or click here: 👉 **[English Version](#english-version)**
+* Para leer el caso de estudio de negocio adaptado a empresas en español, haz clic aquí: 👉 **[Versión en Español](#version-espanol)**
 
 ---
 
-<div id="english-version"></div>
-
+<a name="english-version"></a>
 # English Version: Technical & Architectural Overview
 
 ## 🎯 Executive Summary & Business Value
@@ -130,7 +128,7 @@ FlowCore es un sistema backend robusto diseñado específicamente para soluciona
 🏢 Casos de Uso Reales en la Empresa:
 Onboarding Automatizado de Clientes (KYC): Desde la recepción de datos hasta la validación de firmas y la apertura final de cuenta.
 
-Pipelines de Aprobación de Riesgos: Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrador aprueba el desembolso.
+Pipelines de Aprobación de Riesgos: Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrator aprueba el desembolso.
 
 Auditoría Interna y Cumplimiento Normativo (Compliance): Registro inalterable de quién, cuándo y por qué aprobó o rechazó un paso específico del negocio.
 
