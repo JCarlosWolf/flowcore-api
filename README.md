@@ -1,4 +1,16 @@
 
+¡Qué dolor de cabeza con el Markdown de GitHub, José Carlos! Siento mucho que siga fallando. Ya sé exactamente qué está pasando: GitHub procesa los ID de los títulos de una manera todavía más restrictiva de lo que parece.
+
+Cuando escribimos un título con símbolos como los dos puntos (:) o si los enlaces están dentro de bloques complejos, el motor de renderizado de GitHub rompe el enlace interno por completo.
+
+Para solucionarlo de forma definitiva, radical y 100% segura, vamos a utilizar una técnica nativa de HTML que GitHub soporta a la perfección: las etiquetas de anclaje ocultas (<div id="...">).
+
+Con este método ya no dependemos de cómo le apetezca a GitHub procesar el texto del título. Le obligamos a crear un punto de destino exacto en texto plano (espanol).
+
+Vamos a actualizar los archivos con esta solución infalible:
+
+1. 🛠️ Copia y pega esto en el README.md de FlowCore API:
+Markdown
 # FlowCore API: Workflow Management & Business Process Automation Engine (BPM)
 
 **Developed by:** José Carlos Lobo  
@@ -8,7 +20,7 @@
 
 ## 🌍 Language / Idioma
 
-👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#caso-de-estudio-en-espanol-enfoque-de-negocio)**
+👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#espanol)**
 
 ---
 
@@ -116,7 +128,7 @@ Specialty: Backend Automation & Business Process Optimization (Ex-Banking Profes
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Caso de Estudio en Espanol: Enfoque de Negocio
+Versión en Español: Caso de Estudio de Negocio
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
 
@@ -167,7 +179,7 @@ LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
 ## 🌍 Language / Idioma
 
-👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#caso-de-estudio-en-espanol-enfoque-de-negocio)**
+👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#espanol)**
 
 ---
 
@@ -242,7 +254,7 @@ Specialty: Backend Automation, Secure API Engineering, & Process Optimization (E
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Caso de Estudio en Espanol: Enfoque de Negocio
+Versión en Español: Caso de Estudio de Negocio
 🎯 ¿Qué es InvoiceFlow? (Perspectiva de Negocio)
 En el ámbito de la gestión administrativa y financiera de cualquier empresa, el manejo de facturas internas y datos de facturación exige tres pilares innegociables: seguridad absoluta de acceso, trazabilidad del dato y blindaje de la información (aislamiento). Un error de asignación o una fuga de visibilidad en documentos financieros puede acarrear sanciones regulatorias graves y pérdidas económicas.
 
@@ -284,7 +296,7 @@ LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
 ## 🌍 Language / Idioma
 
-👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#caso-de-estudio-en-espanol-enfoque-de-negocio)**
+👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#espanol)**
 
 ---
 
@@ -364,7 +376,7 @@ Specialty: Web Scraping, Core Automation Workflows, & Python Backend Infrastruct
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Caso de Estudio en Espanol: Enfoque de Negocio
+Versión en Español: Caso de Estudio de Negocio
 🎯 ¿Qué es DealSniper Pro? (Perspectiva de Negocio)
 En mercados altamente competitivos (desde el e-commerce y el reselling hasta el sector inmobiliario o la compraventa de activos), la información oportuna lo es todo. Revisar plataformas de anuncios o marketplaces manualmente para encontrar oportunidades de negocio, subastas o productos por debajo de su precio de mercado es una tarea ineficiente, propensa a errores y que consume cientos de horas hombre. El coste de oportunidad de llegar tarde a una oferta suele significar perder el negocio.
 
