@@ -5,15 +5,14 @@
 
 ---
 
-## 🌍 Language / Idioma
+## Language / Idioma
 
-* For the technical documentation in English, please scroll down or click here: 👉 **[English Version](#english-version)**
-* Para leer el caso de estudio de negocio adaptado a empresas en español, haz clic aquí: 👉 **[Versión en Español](#version-espanol)**
+* For technical documentation: 👉 **[Go to English Version](#english-version-technical-and-architectural-overview)**
+* Para el caso de estudio de negocio: 👉 **[Ir a Version en Espanol](#version-en-espanol-caso-de-estudio-de-negocio)**
 
 ---
 
-<a name="english-version"></a>
-# English Version: Technical & Architectural Overview
+# English Version: Technical and Architectural Overview
 
 ## 🎯 Executive Summary & Business Value
 
@@ -119,7 +118,7 @@ Specialty: Backend Automation & Business Process Optimization (Ex-Banking Profes
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Versión en Español: Caso de Estudio de Negocio
+Version en Espanol: Caso de Estudio de Negocio
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
 
@@ -128,7 +127,7 @@ FlowCore es un sistema backend robusto diseñado específicamente para soluciona
 🏢 Casos de Uso Reales en la Empresa:
 Onboarding Automatizado de Clientes (KYC): Desde la recepción de datos hasta la validación de firmas y la apertura final de cuenta.
 
-Pipelines de Aprobación de Riesgos: Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrator aprueba el desembolso.
+Pipelines de Aprobación de Riesgos: Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrador aprueba el desembolso.
 
 Auditoría Interna y Cumplimiento Normativo (Compliance): Registro inalterable de quién, cuándo y por qué aprobó o rechazó un paso específico del negocio.
 
