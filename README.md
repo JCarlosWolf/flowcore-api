@@ -8,7 +8,7 @@
 
 ## 🌍 Language / Idioma
 
-👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#-versión-en-español-caso-de-estudio-de-negocio)**
+👉 **[Leer este Caso de Estudio en Español (Enfoque de Negocio)](#versión-en-español-caso-de-estudio-de-negocio)**
 
 ---
 
@@ -116,7 +116,7 @@ Specialty: Backend Automation & Business Process Optimization (Ex-Banking Profes
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-🇪🇸 Versión en Español: Caso de Estudio de Negocio
+Versión en Español: Caso de Estudio de Negocio
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
 
