@@ -1,320 +1,112 @@
-# FlowCore API
+# FlowCore API: Motor de Automatización y Trazabilidad de Procesos de Negocio (BPM)
 
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
-![Docker](https://img.shields.io/badge/Docker-ready-blue)
-![Python](https://img.shields.io/badge/Python-3.11-yellow)
-
-FlowCore is a backend system for managing business processes using configurable workflows, process templates and event tracking.
-
-This project demonstrates a production-style backend architecture built with **FastAPI, PostgreSQL, SQLAlchemy and WebSockets**.
-
-It was developed as a **backend portfolio project** to showcase workflow engines, event systems, real-time updates and scalable API design.
+**Desarrollado por:** José Carlos Lobo  
+**Stack Principal:** Python | FastAPI | PostgreSQL | Docker | WebSockets  
 
 ---
 
-# Features
+## 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 
-- JWT Authentication
-- Role-based access control (Admin / Manager / User)
-- Workflow engine with configurable steps
-- Process templates
-- Process lifecycle management
-- Event timeline (audit log)
-- Real-time updates via WebSockets
-- Metrics aggregation API
-- PostgreSQL database
-- Alembic migrations
-- Clean layered architecture
+En cualquier organización, especialmente en sectores altamente regulados como el **financiero o el bancario**, los mayores costes y errores no nacen de la falta de herramientas, sino de la **fricción operativa**: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
+
+**FlowCore** es un sistema backend robusto diseñado específicamente para solucionar este dolor. Es un **Motor de Flujos de Trabajo (Workflow Engine)** que permite a las empresas definir plantillas de procesos, encadenar pasos lógicos obligatorios, asignar roles de cumplimiento y auditar de forma milimétrica cada acción que ocurre en la empresa.
+
+### 🏢 Casos de Uso Reales en la Empresa:
+* **Onboarding Automatizado de Clientes (KYC):** Desde la recepción de datos hasta la validación de firmas y la apertura final de cuenta.
+* **Pipelines de Aprobación de Riesgos:** Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrador aprueba el desembolso.
+* **Auditoría Interna y Cumplimiento Normativo (Compliance):** Registro inalterable de quién, cuándo y por qué aprobó o rechazó un paso específico del negocio.
 
 ---
 
-# Architecture
+## 🚀 Características Clave y Valor Empresarial
 
-The API follows a layered architecture separating API logic, business logic and persistence.
+* **Gobernanza y Control de Accesos (RBAC):** Restringe las acciones críticas basándose en el rango del empleado (Administrador, Manager, Usuario), replicando las estrictas estructuras de seguridad bancaria.
+* **Motor de Flujos Configurable:** Los procesos no son rígidos; se adaptan a la secuencia lógica que el negocio requiera (`Creado` → `Validación Documental` → `Evaluación de Riesgo` → `Aprobado`).
+* **Línea de Tiempo de Eventos (Auditoría Cero Errores):** Cada cambio de estado, modificación de campo o intervención humana genera un evento inalterable. Una bitácora perfecta para controles regulatorios.
+* **Métricas Operativas en Tiempo Real:** El sistema consolida datos automáticamente (procesos por estado, eventos por usuario), permitiendo a los directivos detectar cuellos de botella operativos de inmediato mediante *WebSockets*.
 
+---
 
-Client
-↓
-FastAPI Routers
-↓
-Service Layer
-↓
-Workflow Engine
-↓
-PostgreSQL
+## 🛠️ Arquitectura Técnica y Buenas Prácticas
 
+El sistema ha sido construido bajo los estándares de la industria del software moderno, garantizando escalabilidad, seguridad y mantenibilidad:
 
-### Project Structure
+* **Arquitectura Limpia en Capas:** Separación estricta entre la lógica de entrada (API Routers), la lógica de negocio (Service Layer/Workflow Engine) y la capa de persistencia de datos (PostgreSQL).
+* **Seguridad de Nivel Financiero:** Autenticación y autorización mediante tokens securizados JWT.
+* **Infraestructura Profesional:** Contenerizado con **Docker** para despliegues idénticos en entornos locales o en la nube, y control de base de datos evolutivo con migraciones a través de **Alembic**.
 
-
-app
-├ core # configuration, security, enums
-├ db # database connection
-├ models # SQLAlchemy ORM models
-├ routers # API endpoints
-├ schemas # Pydantic validation schemas
-├ services # business logic
-└ scripts # demo seed scripts
-
-alembic # database migrations
-tests # API tests
+Cliente ➔ [ FastAPI Routers ] ➔ [ Capa de Servicio ] ➔ [ Motor FlowCore ] ➔ [ Base de Datos PostgreSQL ]
 
 
 ---
 
-# Domain Model
+## 📋 Guía de Inicio Rápido (Desarrolladores)
 
-The system models business workflows using the following entities:
+### Requisitos Previos
+* Python 3.10+
+* Docker y Docker Compose
 
-
-ProcessTemplate
-│
-▼
-Workflow
-│
-▼
-WorkflowSteps
-│
-▼
-Process
-│
-▼
-ProcessEvents
-
-
-### Process
-
-Represents an instance of a business workflow.
-
-Examples:
-
-- client onboarding
-- verification processes
-- approval pipelines
-
----
-
-### Workflow
-
-Defines the ordered sequence of steps a process must follow.
-
-Example:
-
-
-created → document_validation → risk_assessment → approved
-
-
----
-
-### Process Events
-
-Every important change generates an event:
-
-- process created
-- field updated
-- status changed
-
-These events create a **timeline (audit log)** for each process.
-
----
-
-# Tech Stack
-
-- Python
-- FastAPI
-- SQLAlchemy
-- PostgreSQL
-- Alembic
-- WebSockets
-- Pydantic
-- JWT Authentication
-- Docker
-
----
-
-# Installation
-
-## Clone repository
-
-
-git clone https://github.com/JCarlosWolf/flowcore-api.git
-
+### 1. Clonar e Instalar Entorno
+```bash
+git clone [https://github.com/JCarlosWolf/flowcore-api.git](https://github.com/JCarlosWolf/flowcore-api.git)
 cd flowcore-api
-
-
-## Create virtual environment
-
-
 python -m venv .venv
+Activar entorno:
 
+Windows: .venv\Scripts\activate
 
-## Activate environment
+Linux/macOS: source .venv/bin/activate
 
-Windows
-
-
-.venv\Scripts\activate
-
-
-Linux / macOS
-
-
-source .venv/bin/activate
-
-
-## Install dependencies
-
-
+Bash
 pip install -r requirements.txt
+2. Configuración de Variables (.env)
+Crea un archivo .env en la raíz del proyecto:
 
-
----
-
-# Environment Variables
-
-Create a `.env` file in the project root:
-
-
+Fragmento de código
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=flowcore_user
 DB_PASSWORD=flowcore_pass
 DB_NAME=flowcore
-
-SECRET_KEY=super_secret_key
+SECRET_KEY=super_secret_key_bancaria
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
-
-
----
-
-# Run Database
-
-Using Docker:
-
-
+3. Levantar Infraestructura y Base de Datos
+Bash
+# Levantar base de datos en Docker
 docker compose up -d
 
-
----
-
-# Run Migrations
-
-
+# Ejecutar migraciones de base de datos
 alembic upgrade head
 
-
----
-
-# Seed Demo Data
-
-
+# Cargar datos de demostración (Estructura de roles y flujo demo)
 python scripts/demo_seed.py
 python scripts/seed_roles_users.py
-
-
-This creates:
-
-- demo workflow
-- process template
-- demo client
-- admin user
-
----
-
-# Run API
-
-
+4. Ejecutar la API
+Bash
 uvicorn app.main:app --reload
+Acceso a la documentación interactiva (Swagger): http://localhost:8000/docs
 
+📊 Endpoints Clave del Sistema
+POST /auth/login - Autenticación y obtención de credenciales de acceso.
 
-Swagger documentation:
+POST /clients - Alta y registro de clientes en el sistema.
 
+POST /processes - Instanciación de un nuevo flujo de trabajo basado en plantillas.
 
-http://localhost:8000/docs
+POST /processes/{id}/status - Transición controlada y validada del estado del proceso.
 
+GET /processes/{id}/timeline - Recuperación de la auditoría completa del expediente.
 
----
+GET /metrics - Cuadro de mando operativo (Kpis de rendimiento del negocio).
 
-# Example API Flow
+✉️ Contacto y Consultoría de Procesos
+Si tu empresa sufre pérdidas de tiempo por tareas manuales, falta de trazabilidad en sus flujos internos o necesitas integrar lógica de negocio compleja en tus sistemas de forma segura:
 
-### Login
+Desarrollador: José Carlos Lobo
 
+Especialidad: Automatización Backend y Optimización de Procesos Operativos (Ex-Banca con más de 35 años de experiencia de negocio).
 
-POST /auth/login
-
-
-### Create client
-
-
-POST /clients
-
-
-### Create process
-
-
-POST /processes
-
-
-### Change process status
-
-
-POST /processes/{id}/status
-
-
-### View timeline
-
-
-GET /processes/{id}/timeline
-
-
----
-
-# Metrics API
-
-The system aggregates workflow metrics.
-
-
-GET /metrics
-
-
-Returns:
-
-- processes by status
-- events by type
-- events by user
-
----
-
-# WebSockets
-
-Real-time updates are available through WebSocket channels.
-
-### Process timeline updates
-
-
-ws://localhost:8000/ws/process/{process_id}
-
-
-### Metrics updates
-
-
-ws://localhost:8000/ws/metrics
-
-
----
-
-# Testing
-
-Run tests with:
-
-
-pytest
-
-
----
-
-# Author
+LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
 Backend portfolio project demonstrating a workflow-based process management architecture built with **FastAPI and PostgreSQL**.
