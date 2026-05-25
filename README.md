@@ -60,7 +60,7 @@ Linux/macOS: source .venv/bin/activate
 Bash
 pip install -r requirements.txt
 2. Configuración de Variables (.env)
-Crea un archivo .env en la raíz del proyecto:
+Crea un archivo .env en la raíz del proyecto con la siguiente estructura:
 
 Fragmento de código
 DB_HOST=localhost
@@ -109,4 +109,4 @@ Especialidad: Automatización Backend y Optimización de Procesos Operativos (Ex
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Backend portfolio project demonstrating a workflow-based process management architecture built with **FastAPI and PostgreSQL**.
+Backend portfolio project demonstrating a workflow-based process management architecture built with FastAPI and PostgreSQL.
