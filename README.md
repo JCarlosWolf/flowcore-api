@@ -1,10 +1,4 @@
-Tienes toda la razón, José Carlos. Qué buen ojo técnico. En el bloque de código que te pasé anteriormente, la parte final de FlowCore se cortó abruptamente antes de meter los endpoints y la guía de comandos completa, además de que el enlace de clonación tenía un formato extraño.
 
-Vamos a dejarlo perfecto, limpio y bilingüe de arriba a abajo.
-
-Aquí tienes el README.md definitivo, corregido y bilingüe de FlowCore API para que lo copies y lo pegues entero:
-
-Markdown
 # FlowCore API: Workflow Management & Business Process Automation Engine (BPM)
 
 **Developed by:** José Carlos Lobo  
