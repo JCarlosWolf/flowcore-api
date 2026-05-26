@@ -7,10 +7,12 @@
 
 ## Language / Idioma
 
-- [English Version](#english-version)
-- [Versión en Español](#version-espanol)
+- [English Version](#english)
+- [Versión en Español](#espanol)
 
 ---
+
+<a id="english"></a>
 
 # English Version
 
@@ -20,7 +22,9 @@ In any organization, especially within highly regulated sectors like **banking a
 
 **FlowCore** is a production-style backend system engineered to solve this organizational pain. It functions as a robust **Workflow Engine** that empowers businesses to define structured process templates, enforce strict conditional step sequences, assign role-based compliance permissions, and build a pixel-perfect audit log of every single corporate movement.
 
-### 🏢 Real-World Corporate Use Cases
+---
+
+## 🏢 Real-World Corporate Use Cases
 
 - **Automated Client Onboarding (KYC):** Managing everything from data collection and background screening to final account activation.
 - **Risk Assessment & Approval Pipelines:** Enforcing workflows where junior analysts initiate scoring, managers evaluate risk, and administrators authorize payouts.
@@ -116,6 +120,8 @@ Specialty: Backend Automation & Business Process Optimization
 
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
+
+<a id="espanol"></a>
 
 Version Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
