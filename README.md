@@ -5,14 +5,14 @@
 
 ---
 
-## Language / Idioma
+## 🌍 Language / Idioma
 
-* For technical documentation: 👉 **[English Version](#english)**
-* Para el caso de estudio de negocio: 👉 **[Version en Espanol](#espanol)**
+- 🇺🇸 [English Version](#-english-version)
+- 🇪🇸 [Versión en Español](#-versión-en-español)
 
 ---
 
-# English
+# 🇺🇸 English Version
 
 ## 🎯 Executive Summary & Business Value
 
@@ -44,113 +44,102 @@ Built according to modern software engineering standards to guarantee high avail
 * **Financial-Grade Security:** Secure authentication and authorization powered by JWT tokens.
 * **Professional Infrastructure:** Fully containerized with **Docker** for identical development and production environments, featuring database versioning via **Alembic** migrations.
 
+```text
 Client ➔ [ FastAPI Routers ] ➔ [ Service Layer ] ➔ [ Workflow Engine ] ➔ [ PostgreSQL Database ]
-
-
----
-
-## 📋 Quick Start Guide (Developers)
-
-### Prerequisites
-* Python 3.10+
-* Docker and Docker Compose
-
-### 1. Environment Setup
-```bash
-git clone [https://github.com/JCarlosWolf/flowcore-api.git](https://github.com/JCarlosWolf/flowcore-api.git)
+📋 Quick Start Guide (Developers)
+Prerequisites
+Python 3.10+
+Docker and Docker Compose
+1. Environment Setup
+git clone https://github.com/JCarlosWolf/flowcore-api.git
 cd flowcore-api
+
 python -m venv .venv
+
 Activate virtual environment:
 
-Windows: .venv\Scripts\activate
+Windows
 
-Linux/macOS: source .venv/bin/activate
+.venv\Scripts\activate
 
-Bash
+Linux/macOS
+
+source .venv/bin/activate
+
+Install dependencies:
+
 pip install -r requirements.txt
 2. Configuration (.env)
+
 Create a .env file in the root directory:
 
-Fragmento de código
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=flowcore_user
 DB_PASSWORD=flowcore_pass
 DB_NAME=flowcore
+
 SECRET_KEY=super_secret_banking_key
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=30
 3. Run Database & Migrations
-Bash
 # Start PostgreSQL via Docker
 docker compose up -d
 
 # Run database migrations
 alembic upgrade head
 
-# Seed demo data (Roles, users, and a workflow sample)
+# Seed demo data
 python scripts/demo_seed.py
 python scripts/seed_roles_users.py
 4. Launch the API
-Bash
 uvicorn app.main:app --reload
-Interactive API Documentation (Swagger UI): http://localhost:8000/docs
 
+Interactive API Documentation (Swagger UI):
+
+http://localhost:8000/docs
 📊 Core API Endpoints
-POST /auth/login - User authentication and token issuance.
-
-POST /clients - Client onboarding and registration.
-
-POST /processes - Instantiating a new workflow instance based on templates.
-
-POST /processes/{id}/status - Controlled and validated workflow state transitions.
-
-GET /processes/{id}/timeline - Fetching the comprehensive audit log for a process.
-
-GET /metrics - Operational dashboard (KPI aggregation).
-
+POST /auth/login → User authentication and token issuance
+POST /clients → Client onboarding and registration
+POST /processes → Create new workflow instances
+POST /processes/{id}/status → Controlled workflow transitions
+GET /processes/{id}/timeline → Full audit history
+GET /metrics → Operational KPIs & metrics
 ✉️ Contact & Process Consulting
+
 If your business is wasting hours on manual tracking, lacks visibility into its internal operations, or requires a secure backend to enforce complex business logic:
 
 Developer: José Carlos Lobo
 
-Specialty: Backend Automation & Business Process Optimization (Ex-Banking Professional with 35+ years of operational business experience).
+Specialty: Backend Automation & Business Process Optimization
 
-LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
+LinkedIn:
+https://www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Espanol
+🇪🇸 Versión en Español
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
-En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
+
+En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente.
 
 FlowCore es un sistema backend robusto diseñado específicamente para solucionar este dolor. Es un Motor de Flujos de Trabajo (Workflow Engine) que permite a las empresas definir plantillas de procesos, encadenar pasos lógicos obligatorios, asignar roles de cumplimiento y auditar de forma milimétrica cada acción que ocurre en la empresa.
 
-🏢 Casos de Uso Reales en la Empresa:
-Onboarding Automatizado de Clientes (KYC): Desde la recepción de datos hasta la validación de firmas y la apertura final de cuenta.
-
-Pipelines de Aprobación de Riesgos: Flujos donde un analista inicia el scoring, un Manager evalúa y un Administrador aprueba el desembolso.
-
-Auditoría Interna y Cumplimiento Normativo (Compliance): Registro inalterable de quién, cuándo y por qué aprobó o rechazó un paso específico del negocio.
-
+🏢 Casos de Uso Reales en la Empresa
+Onboarding Automatizado de Clientes (KYC)
+Pipelines de Aprobación de Riesgos
+Auditoría Interna y Cumplimiento Normativo
 🚀 Características Clave y Valor Empresarial
-Gobernanza y Control de Accesos (RBAC): Restringe las acciones críticas basándose en el rango del empleado (Administrador, Manager, Usuario), replicando las estrictas estructuras de seguridad bancaria.
-
-Motor de Flujos Configurable: Los procesos no son rígidos; se adaptan a la secuencia lógica que el negocio requiera (Creado → Validación Documental → Evaluación de Riesgo → Aprobado).
-
-Línea de Tiempo de Eventos (Auditoría Cero Errores): Cada cambio de estado, modificación de campo o intervención humana genera un evento inalterable. Una bitácora perfecta para controles regulatorios.
-
-Métricas Operativas en Tiempo Real: El sistema consolida datos automáticamente (procesos por estado, eventos por usuario), permitiendo a los directivos detectar cuellos de botella operativos de inmediato mediante WebSockets.
-
+Gobernanza y Control de Accesos (RBAC)
+Motor de Flujos Configurable
+Línea de Tiempo de Eventos
+Métricas Operativas en Tiempo Real
 🛠️ Arquitectura Técnica y Buenas Prácticas
-El sistema ha sido construido bajo los estándares de la industria del software moderno, garantizando escalabilidad, seguridad y mantenibilidad:
-
-Arquitectura Limpia en Capas: Separación estricta entre la lógica de entrada (API Routers), la lógica de negocio (Service Layer/Workflow Engine) y la capa de persistencia de datos (PostgreSQL).
-
-Seguridad de Nivel Financiero: Autenticación y autorización mediante tokens securizados JWT.
-
-Infraestructura Profesional: Contenerizado con Docker para despliegues idénticos en entornos locales o en la nube, y control de base de datos evolutivo con migraciones a través de Alembic.
-
+Arquitectura Limpia en Capas
+Seguridad con JWT
+Docker + Alembic
+PostgreSQL + FastAPI
 ✉️ Contacto y Consultoría de Procesos
+
 Desarrollador: José Carlos Lobo
 
-LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
-
+LinkedIn:
+https://www.linkedin.com/in/josé-carlos-lobo-473b458a
