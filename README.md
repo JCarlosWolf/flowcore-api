@@ -7,12 +7,12 @@
 
 ## Language / Idioma
 
-* For technical and architectural documentation: 👉 **[Read in English](#english-version)**
-* Para el caso de estudio orientado a negocio: 👉 **[Leer en Español](#version-en-espanol)**
+* For technical documentation: 👉 **[English Version](#english)**
+* Para el caso de estudio de negocio: 👉 **[Version en Espanol](#espanol)**
 
 ---
 
-# English Version
+# English
 
 ## 🎯 Executive Summary & Business Value
 
@@ -118,7 +118,7 @@ Specialty: Backend Automation & Business Process Optimization (Ex-Banking Profes
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Version en Espanol
+Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente (ej. el onboarding de un cliente, la validación de un riesgo o la aprobación de un crédito).
 
@@ -138,7 +138,7 @@ Motor de Flujos Configurable: Los procesos no son rígidos; se adaptan a la secu
 
 Línea de Tiempo de Eventos (Auditoría Cero Errores): Cada cambio de estado, modificación de campo o intervención humana genera un evento inalterable. Una bitácora perfecta para controles regulatorios.
 
-Métricas Operativas en Tiempo Real: El sistema consolida datos automáticamente (procesos por estado, eventos por usuario),iniendo a los directivos detectar cuellos de botella operativos de inmediato mediante WebSockets.
+Métricas Operativas en Tiempo Real: El sistema consolida datos automáticamente (procesos por estado, eventos por usuario), permitiendo a los directivos detectar cuellos de botella operativos de inmediato mediante WebSockets.
 
 🛠️ Arquitectura Técnica y Buenas Prácticas
 El sistema ha sido construido bajo los estándares de la industria del software moderno, garantizando escalabilidad, seguridad y mantenibilidad:
@@ -153,5 +153,4 @@ Infraestructura Profesional: Contenerizado con Docker para despliegues idéntico
 Desarrollador: José Carlos Lobo
 
 LinkedIn: www.linkedin.com/in/josé-carlos-lobo-473b458a
-
 
