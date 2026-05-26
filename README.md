@@ -7,12 +7,10 @@
 
 ## Language / Idioma
 
-- [English Version](#english)
-- [Versión en Español](#espanol)
+- [English Version](#english-version)
+- [Versión en Español](#version-espanol)
 
 ---
-
-<a id="english"></a>
 
 # English Version
 
@@ -120,8 +118,6 @@ Specialty: Backend Automation & Business Process Optimization
 
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
-
-<a id="espanol"></a>
 
 Version Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
