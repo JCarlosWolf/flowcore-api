@@ -7,12 +7,12 @@
 
 ## Language / Idioma
 
-- [English Version](#english-version)
-- [Versión en Español](#version-espanol)
+- [English Version](https://github.com/JCarlosWolf/flowcore-api#english-version)
+- [Versión en Español](https://github.com/JCarlosWolf/flowcore-api#version-espanol)
 
 ---
 
-<h1 id="english-version">English Version</h1>
+# English Version
 
 ## 🎯 Executive Summary & Business Value
 
@@ -119,7 +119,7 @@ Specialty: Backend Automation & Business Process Optimization
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-<h1 id="version-espanol">Version Espanol</h1>
+Version Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente.
@@ -145,4 +145,3 @@ PostgreSQL + FastAPI
 Desarrollador: José Carlos Lobo
 
 LinkedIn:
-https://www.linkedin.com/in/josé-carlos-lobo-473b458a
