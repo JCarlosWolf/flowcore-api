@@ -119,7 +119,7 @@ Specialty: Backend Automation & Business Process Optimization
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-#espanol
+
 
 Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
