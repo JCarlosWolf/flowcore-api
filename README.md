@@ -138,7 +138,7 @@ Motor de Flujos Configurable: Los procesos no son rígidos; se adaptan a la secu
 
 Línea de Tiempo de Eventos (Auditoría Cero Errores): Cada cambio de estado, modificación de campo o intervención humana genera un evento inalterable. Una bitácora perfecta para controles regulatorios.
 
-Métricas Operativas en Tiempo Real: El sistema consolida datos automáticamente (procesos por estado, eventos por usuario), permitiendo a los directivos detectar cuellos de botella operativos de inmediato mediante WebSockets.
+Métricas Operativas en Tiempo Real: El sistema consolida datos automáticamente (procesos por estado, eventos por usuario),iniendo a los directivos detectar cuellos de botella operativos de inmediato mediante WebSockets.
 
 🛠️ Arquitectura Técnica y Buenas Prácticas
 El sistema ha sido construido bajo los estándares de la industria del software moderno, garantizando escalabilidad, seguridad y mantenibilidad:
