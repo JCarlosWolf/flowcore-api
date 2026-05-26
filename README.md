@@ -5,14 +5,14 @@
 
 ---
 
-## 🌍 Language / Idioma
+## Language / Idioma
 
-- 🇺🇸 [English Version](#-english-version)
-- 🇪🇸 [Versión en Español](#-versión-en-español)
+- [English Version](#english-version)
+- [Versión en Español](#version-espanol)
 
 ---
 
-# 🇺🇸 English Version
+# English Version
 
 ## 🎯 Executive Summary & Business Value
 
@@ -20,19 +20,20 @@ In any organization, especially within highly regulated sectors like **banking a
 
 **FlowCore** is a production-style backend system engineered to solve this organizational pain. It functions as a robust **Workflow Engine** that empowers businesses to define structured process templates, enforce strict conditional step sequences, assign role-based compliance permissions, and build a pixel-perfect audit log of every single corporate movement.
 
-### 🏢 Real-World Corporate Use Cases:
-* **Automated Client Onboarding (KYC):** Managing everything from data collection and background screening to final account activation.
-* **Risk Assessment & Approval Pipelines:** Enforcing workflows where junior analysts initiate scoring, managers evaluate risk, and administrators authorize payouts.
-* **Regulatory Compliance & Internal Audit:** Keeping an immutable record of who approved or rejected a specific business step, when, and why.
+### 🏢 Real-World Corporate Use Cases
+
+- **Automated Client Onboarding (KYC):** Managing everything from data collection and background screening to final account activation.
+- **Risk Assessment & Approval Pipelines:** Enforcing workflows where junior analysts initiate scoring, managers evaluate risk, and administrators authorize payouts.
+- **Regulatory Compliance & Internal Audit:** Keeping an immutable record of who approved or rejected a specific business step, when, and why.
 
 ---
 
 ## 🚀 Key Features & Enterprise Value
 
-* **Role-Based Access Control (RBAC):** Restricts critical operations based on corporate hierarchy (Admin, Manager, User), mirroring rigorous banking security frameworks.
-* **Configurable Workflow Engine:** Business processes are dynamic and fully adaptable to custom logical sequences (`created` ➔ `document_validation` ➔ `risk_assessment` ➔ `approved`).
-* **Event Timeline (Zero-Error Audit Log):** Every state transition, data modification, or human intervention generates an immutable event—providing a bulletproof log for regulatory audits.
-* **Real-Time Operational Metrics:** System aggregates data on the fly (processes by status, events by user/type), allowing executives to pinpoint operational bottlenecks instantly via *WebSockets*.
+- **Role-Based Access Control (RBAC):** Restricts critical operations based on corporate hierarchy (Admin, Manager, User), mirroring rigorous banking security frameworks.
+- **Configurable Workflow Engine:** Business processes are dynamic and fully adaptable to custom logical sequences (`created` ➔ `document_validation` ➔ `risk_assessment` ➔ `approved`).
+- **Event Timeline (Zero-Error Audit Log):** Every state transition, data modification, or human intervention generates an immutable event—providing a bulletproof log for regulatory audits.
+- **Real-Time Operational Metrics:** System aggregates data on the fly (processes by status, events by user/type), allowing executives to pinpoint operational bottlenecks instantly via WebSockets.
 
 ---
 
@@ -40,9 +41,9 @@ In any organization, especially within highly regulated sectors like **banking a
 
 Built according to modern software engineering standards to guarantee high availability, scalability, and long-term maintainability:
 
-* **Clean Layered Architecture:** Strict separation between input logic (API Routers), core business logic (Service Layer/Workflow Engine), and data persistence (PostgreSQL).
-* **Financial-Grade Security:** Secure authentication and authorization powered by JWT tokens.
-* **Professional Infrastructure:** Fully containerized with **Docker** for identical development and production environments, featuring database versioning via **Alembic** migrations.
+- **Clean Layered Architecture:** Strict separation between input logic (API Routers), core business logic (Service Layer/Workflow Engine), and data persistence (PostgreSQL).
+- **Financial-Grade Security:** Secure authentication and authorization powered by JWT tokens.
+- **Professional Infrastructure:** Fully containerized with Docker for identical development and production environments, featuring database versioning via Alembic migrations.
 
 ```text
 Client ➔ [ FastAPI Routers ] ➔ [ Service Layer ] ➔ [ Workflow Engine ] ➔ [ PostgreSQL Database ]
@@ -116,7 +117,7 @@ Specialty: Backend Automation & Business Process Optimization
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-🇪🇸 Versión en Español
+Version Espanol
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente.
@@ -130,7 +131,7 @@ Auditoría Interna y Cumplimiento Normativo
 🚀 Características Clave y Valor Empresarial
 Gobernanza y Control de Accesos (RBAC)
 Motor de Flujos Configurable
-Línea de Tiempo de Eventos
+Línea de Tiempo de Eventos (Auditoría)
 Métricas Operativas en Tiempo Real
 🛠️ Arquitectura Técnica y Buenas Prácticas
 Arquitectura Limpia en Capas
