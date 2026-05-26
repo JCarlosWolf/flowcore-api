@@ -12,7 +12,7 @@
 
 ---
 
-# English Version
+<h1 id="english-version">English Version</h1>
 
 ## 🎯 Executive Summary & Business Value
 
@@ -119,7 +119,7 @@ Specialty: Backend Automation & Business Process Optimization
 LinkedIn:
 https://www.linkedin.com/in/josé-carlos-lobo-473b458a
 
-Version Espanol
+<h1 id="version-espanol">Version Espanol</h1>
 🎯 ¿Qué es FlowCore? (Perspectiva de Negocio)
 
 En cualquier organización, especialmente en sectores altamente regulados como el financiero o el bancario, los mayores costes y errores no nacen de la falta de herramientas, sino de la fricción operativa: procesos manuales desordenados, falta de claridad en las aprobaciones, pérdida de documentos y la incapacidad de saber en tiempo real en qué fase se encuentra un expediente.
