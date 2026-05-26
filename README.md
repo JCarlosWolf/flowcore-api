@@ -7,8 +7,8 @@
 
 ## Language / Idioma
 
-- [English Version](https://github.com/JCarlosWolf/flowcore-api#english-version)
-- [Versión en Español](https://github.com/JCarlosWolf/flowcore-api#version-espanol)
+- [English Version](#english-version)
+- [Versión en Español](#version-espanol)
 
 ---
 
@@ -145,3 +145,4 @@ PostgreSQL + FastAPI
 Desarrollador: José Carlos Lobo
 
 LinkedIn:
+https://www.linkedin.com/in/josé-carlos-lobo-473b458a
